@@ -1,0 +1,27 @@
+{
+  "name": "web-news",
+  "version": "1.0.0",
+  "description": "A node app that scrapes web design and development blogs for the latest news about the web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngranahan/web-news.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.1",
+    "mongoose": "^5.0.11"
+  },
+  "bugs": {
+    "url": "https://github.com/ngranahan/web-news/issues"
+  },
+  "homepage": "https://github.com/ngranahan/web-news#readme"
+}
