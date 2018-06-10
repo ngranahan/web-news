@@ -15,13 +15,14 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.1",
     "express-handlebars": "^2.0.1",
     "mongoose": "^5.0.11",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "nodemon": "^1.17.5"
   },
   "bugs": {
     "url": "https://github.com/ngranahan/web-news/issues"
