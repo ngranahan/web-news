@@ -6,16 +6,25 @@
 
 <main>
     <div class="container">
-        {{!-- Creates a card for each new article --}}
-        <div class="card horizontal">
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Article Title
-                    <i class="material-icons right">favorite_border</i>
-                    </i>
-                </span>
-                <p>Some body Text</p>
+        {{!-- Creates an article card --}} 
+        {{#if articles}} 
+            {{#each articles}}
+            <div class="card horizontal">
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">
+                        <a href="http://alistapart.com{{this.link}}" data-link="{{this.link}}" data-title="{{this.title}}">{{this.title}}</a>
+                        <i class="material-icons right" data-id="{{this._id}}" data-click="save">favorite_border</i>
+                        </i>
+                    </span>
+                    {{!-- TODO: Work on this for including summary text --}}
+                    {{!-- <p>{{this.summary}}</p> --}}
+                </div>
             </div>
-        </div>
+            {{/each}}
+        {{else}} 
+            <p class="center-align">Please click "New Articles" to scrape some articles.</p>
+        {{/if}}
+
     </div>
 </main>
 

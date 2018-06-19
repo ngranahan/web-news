@@ -11,6 +11,15 @@ const ArticleSchema = new Schema({
         type: String, 
         required: true
     },
+    // TODO: Work on this for including summary text
+    // summary: {
+    //     type: String,
+    //     required: true
+    // },
+    saved: {
+        type: Boolean,
+        default: false
+    },
     note: {
         type: Schema.Types.ObjectId,
         ref: "Note"
