@@ -62,7 +62,7 @@ router.post("/article/:id", (req, res) => {
 
 // Route 4 - Stores notes to the database
 // TODO: Get this working...
-router.post("/article/:id", (req, res) => {
+router.post("/note/:id", (req, res) => {
     // Find the article by it's id and set saved equal to true
     db.Note.create(req.body)
     .then((dbNote) => {

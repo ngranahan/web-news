@@ -27,10 +27,9 @@ $(document).on("click", "#saveArticle", function () {
 $(document).on("click", ".save-note", function () {
     const thisId = $(this).attr("data-id");
 
-    // Change saved property to true
     $.ajax({
         method: "POST",
-        url: "/article/" + thisId,
+        url: "/note/" + thisId,
         data: {
             title: $("#noteTitle").val(),
             body: $("#noteBody").val()
