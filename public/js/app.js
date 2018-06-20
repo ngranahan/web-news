@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 // When the favorites icon is clicked, mark the article as saved in the database
 // TODO: Look into how this behaves in an arrow function
-$(document).on("click", ".saveArticle", function () {
+$(document).on("click", "#saveArticle", function () {
     const thisId = $(this).attr("data-id");
 
     // Change saved property to true
@@ -19,7 +19,7 @@ $(document).on("click", ".saveArticle", function () {
         .then((data) => {
             console.log(data);
             // TODO: Add a materialize toast to let the user know the article has been saved
-            $(".saveArticle").text("favorite");
+            $("#saveArticle").text("favorite");
         });
 });
 
