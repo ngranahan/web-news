@@ -48,27 +48,43 @@ router.get("/scrape", (req, res) => {
 
 
 // Route 3 - Stores favorite articles to the database
-router.get("/save", (req, res) => {
-    
+router.post("/article/:id", (req, res) => {
+    // Find the article by it's id and set saved equal to true
+    db.Article.findOneAndUpdate({ _id: req.params.id }, {saved: true })
+    .then((dbArticleSaved) => {
+        console.log("article saved")
+        res.json(dbArticleSaved)
+    })
+    .catch((err) => {
+        res.json(err);
+    });
 });
 
-// Route 4 - Grabs saved articles from the database
+// Route 4 - Stores notes to the database
+// TODO: Get this working...
+router.post("/article/:id", (req, res) => {
+    // Find the article by it's id and set saved equal to true
+    db.Note.create(req.body)
+    .then((dbNote) => {
+        console.log("note saved")
+        res.json(dbNote)
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+});
+
+// Route 5 - Grabs saved articles from the database
 // This route grabs articles from the database
 // TODO: This might not be necessary anymore
 router.get("/savedarticles", (req, res) => {
-    db.SavedArticles.find({}).then((dbSavedArticle) => {
+    db.Article.find({ saved: true }).then((dbSavedArticle) => {
         res.render("saved", { articles: dbSavedArticle });
     })
     .catch((err) => {
         res.json(err);
     });
 }); 
-
-// Route 5 - Stores note to the database ??
-
-// Route 6 - Grabs notes ??
-
-
 
 
 module.exports = router;

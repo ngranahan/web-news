@@ -5,20 +5,51 @@
 </header>
 <main>
     <div class="container">
-    {{!-- Creates a card for each saved article --}}
-    {{#each savedArticles}}
-    <div class="card horizontal">
-        <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Article Title<i class="materialize-icons right">more_vert</i></i></span>
-            <p>Some body Text</p>
+        {{!-- Creates a card for each saved article --}} {{#if articles}} {{#each articles}}
+        <div class="card horizontal">
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">
+                    <a href="http://alistapart.com{{this.link}}" data-link="{{this.link}}" data-title="{{this.title}}">{{this.title}}</a>
+                    <i class="material-icons right" data-id="{{this._id}}" class="savedArticle">favorite</i>
+                    </i>
+                </span>
+                <a href="#modal1" data-button="notes" class="waves-effect waves-light btn modal-trigger">Notes</a>
+                {{!-- TODO: Work on this for including summary text --}} {{!--
+                <p>{{this.summary}}</p> --}}
+            </div>
         </div>
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>Article Notes</span>
-            <p>Some body text</p>
+
+        {{!-- MODAL FOR NOTES --}}
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <a href="http://alistapart.com{{this.link}}" data-link="{{this.link}}" data-title="{{this.title}}">
+                    <h4>{{this.title}}</h4>
+                </a>
+
+                {{#if this.note }}
+                <h5>{{this.note.title}}</h5>
+                <p>{{this.note.body}}</p>
+                {{/if}}
+
+                <form action="">
+                    <div class="input-field col s6">
+                        <input id="noteTitle" type="text" class="validate">
+                        <label for="noteTitle">Note Title</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="noteBody" class="materialize-textarea"></textarea>
+                        <label for="noteBody">Your Notes</label>
+                    </div>
+                </form>
+                <a href="#modal1" data-button="notes" class="waves-effect waves-light btn modal-trigger save-note" data-id="{{this._id}}">Save Note</a>
+            </div>
         </div>
+
+        {{/each}} {{else}}
+        <p class="center-align">Please head back to the home page and save some articles.</p>
+        {{/if}}
     </div>
-    {{/each}}
-    </div>
+
 </main>
 <footer>
 
